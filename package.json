@@ -1,10 +1,17 @@
 {
+  "name": "employee-tracker-app",
+  "version": "1.0.0",
+  "description": "## Description This application allows employers to create and manage databases for their employees. Once users have added their staff members' information as well as the information regarding roles within the company to their database, they may view these databases at any time.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
   "dependencies": {
     "console.table": "^0.10.0",
-    "express": "^4.18.2",
-    "inquirer": "^9.1.5",
-    "install": "^0.13.0",
-    "mysql2": "^3.2.3",
-    "npm": "^9.6.4"
+    "inquirer": "^8.2.4",
+    "mysql2": "^3.3.0"
   }
 }

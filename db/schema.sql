@@ -3,38 +3,31 @@ CREATE DATABASE employee_db;
 
 USE employee_db;
 
-CREATE TABLE job (
-  id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
-  title VARCHAR(30) NOT NULL,
-  description STRING NOT NULL,
-  FOREIGN KEY (department)
-  REFERENCES department(name)
-  ON DELETE SET NULL,
-  salary INT NOT NULL,
-)
-
-CREATE TABLE manager (
-  id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
-  first_name VARCHAR(30) NOT NULL,
-  last_name VARCHAR(30) NOT NULL,
-  FOREIGN KEY (department)
-  REFERENCES department(name)
-  salary INT NOT NULL
-)
-
-CREATE TABLE employee (
-  id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
-  first_name VARCHAR(30) NOT NULL,
-  last_name VARCHAR(30) NOT NULL,
-  FOREIGN KEY (job_id)
-  REFERENCES job(id)
-  ON DELETE SET NULL,
-  FOREIGN KEY (manager_id)
-  REFERENCES manager(id)
-  ON DELETE SET NULL
-)
 
 CREATE TABLE department (
-  id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
-  name VARCHAR(30) NOT NULL
-)
+  id INT PRIMARY KEY NOT NULL,
+  name VARCHAR(300) NOT NULL
+);
+
+CREATE TABLE role (
+  id INT PRIMARY KEY NOT NULL,
+  title VARCHAR(300) NOT NULL,
+  salary INT NOT NULL,
+  department_id INT,
+  FOREIGN KEY (department_id)
+  REFERENCES department(id)
+  ON DELETE SET NULL
+);
+
+CREATE TABLE employee (
+  id INT PRIMARY KEY NOT NULL,
+  first_name VARCHAR(30) NOT NULL,
+  last_name VARCHAR(30) NOT NULL,
+  role_id INT,
+  manager_id INT,
+  FOREIGN KEY (role_id)
+  REFERENCES role(id)
+  ON DELETE SET NULL,
+  FOREIGN key (manager_id)
+  REFERENCES employee (id)
+);
