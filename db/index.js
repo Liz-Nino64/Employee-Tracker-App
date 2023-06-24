@@ -1,3 +1,3 @@
-const { getDepts, getRoles, getEmployees } = require("./DB");
+const { getDepts, getRoles, getEmployees, addDept, addEmployee, addRole } = require("./DB");
 
-module.exports = { getDepts, getRoles, getEmployees };
+module.exports = { getDepts, getRoles, getEmployees, addDept, addEmployee, addRole };
