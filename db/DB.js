@@ -19,16 +19,13 @@ class DB {
         console.table(data);
     }
     addDept = async (answers) => {
-        let [data] = await this.db.promise().query(`INSERT INTO department (name) values (${answers.deptName})`)
-        console.table(data);
+        return console.table(this.db.promise().query('INSERT INTO department (name) SET (?)', [answers.deptName]));
     }
     addRole = async (answers) => {
-        let [data] = await this.db.promise().query(`INSERT INTO role (title, salary, department_id) values (${answers.title}, ${answers.salary}, ${answers.department_id})`)
-        console.table(data);
+        return console.table(this.db.promise().query('INSERT INTO role (title, salary, department_id) SET (?)', [answers.roleTitle, answers.roleSalary, answers.roleDept]));
     }
     addEmployee = async (answers) => {
-        let [data] = await this.db.promise().query(`INSERT INTO employee (first_name, last_name, role_id, manager_id) values (${answers.first_name}, ${answers.last_name}, ${answers.role_id}, ${answers.manager_id})`)
-        console.table(data);
+        return console.table(this.db.promise().query('INSERT INTO employee (first_name, last_name, role_id, manager_id) SET (?)', [answers.employeeFirstName, answers.employeeLastName, answers.employeeRoleId, answers.employeeManagerId]));
     }
 };
 
