@@ -15,15 +15,10 @@ const init = () => {
       getDepts().then(init);
     } else if (task == "view all roles") {
       getRoles().then(init);
-    } else if ("view all employees") {
+    } else if (task == "view all employees") {
       getEmployees().then(init);
     } else if (task == "add a department") {
       prompt([
-        {
-          type: 'input',
-          name: 'deptId',
-          message: 'What is the id of your new department?'
-        },
         {
           type: 'input',
           name: 'deptName',
@@ -33,11 +28,6 @@ const init = () => {
       addDept(answers).then(init)));
     } else if (task == "add a role") {
       prompt([
-        {
-          type: 'input',
-          name: 'roleId',
-          message: 'What is the id of your new role?'
-        },
         {
           type: 'input',
           name: 'roleTitle',
@@ -57,11 +47,6 @@ const init = () => {
       addRole(answers).then(init)));
     } else {
       prompt([
-        {
-          type: 'input',
-          name: 'employeeId',
-          message: 'What is the id of your new employee?'
-        },
         {
           type: 'input',
           name: 'employeeFirstName',

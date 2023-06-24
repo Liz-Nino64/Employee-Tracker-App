@@ -18,16 +18,16 @@ class DB {
         let [data] = await this.db.promise().query('SELECT * FROM employee;');
         console.table(data);
     }
-    addDept = async () => {
-        let [data] = await this.db.promise().insert(`INSERT INTO department (id, name) values (${answers.id}, ${answers.name})`)
+    addDept = async (answers) => {
+        let [data] = await this.db.promise().query(`INSERT INTO department (name) values (${answers.deptName})`)
         console.table(data);
     }
-    addRole = async () => {
-        let [data] = await this.db.promise().insert(`INSERT INTO role (id, title, salary, department_id) values (${answers.id}, ${answers.title}, ${answers.salary}, ${answers.department_id})`)
+    addRole = async (answers) => {
+        let [data] = await this.db.promise().query(`INSERT INTO role (title, salary, department_id) values (${answers.title}, ${answers.salary}, ${answers.department_id})`)
         console.table(data);
     }
-    addEmployee = async () => {
-        let [data] = await this.db.promise().insert(`INSERT INTO employee (id, first_name, last_name, role_id, manager_id) values (${answers.id}, ${answers.first_name}, ${answers.last_name}, ${answers.role_id}, ${answers.manager_id})`)
+    addEmployee = async (answers) => {
+        let [data] = await this.db.promise().query(`INSERT INTO employee (first_name, last_name, role_id, manager_id) values (${answers.first_name}, ${answers.last_name}, ${answers.role_id}, ${answers.manager_id})`)
         console.table(data);
     }
 };
