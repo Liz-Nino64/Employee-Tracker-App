@@ -8,7 +8,9 @@ This application allows employers to create and manage databases for their emplo
 
 2. Enter ``` npm install ``` into the terminal to download all MySQL2, Express, Inquirer, and Console.Table packages
 
-3. Follow the prompts to add employee, role, and department information
+3. Add your MySQL 'root' password to Line 6 in Connection.js
+
+4. Follow the prompts to add employee, role, and department information
 
 ## License
 Licensed under the MIT License
